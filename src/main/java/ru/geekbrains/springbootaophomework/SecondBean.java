@@ -16,4 +16,14 @@ public class SecondBean {
         log.info(nums.toString());
     }
 
+    @RecoverException
+    public long thirdMethod() {
+        throw new NullPointerException();
+    }
+
+    @RecoverException(noRecoverFor = {RuntimeException.class})
+    public String fourthMethod() {
+        throw new ArithmeticException();
+    }
+
 }
